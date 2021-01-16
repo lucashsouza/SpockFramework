@@ -27,7 +27,7 @@ public enum FaixaImc {
             double limiteInferior = (sexo == Sexo.FEMININO) ? anterior.limiteMaximoFeminino : anterior.limiteMaximoMasculino;
             double limiteSuperior = (sexo == Sexo.FEMININO) ? atual.limiteMaximoFeminino : atual.limiteMaximoMasculino;
 
-            if (imc >= limiteInferior && imc < limiteSuperior) {
+            if (imc > limiteInferior && imc < limiteSuperior) {
                 retorno = atual;
             }
         }
