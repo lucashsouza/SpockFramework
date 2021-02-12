@@ -42,4 +42,24 @@ class CalculadoraImcTest extends Specification{
         then:
         thrown(IllegalArgumentException)
     }
+
+    def 'lançar exceção c/ mensagem correta p/ peso inválido v1'(){
+        when:
+        def peso = -1
+        new CalculadoraImc().calcularImc(peso, 1.70)
+
+        then:
+        def ex = thrown(IllegalArgumentException)
+        ex.message == "O peso $peso é inválido"
+    }
+
+    def 'lançar exceção c/ mensagem correta p/ peso inválido v2'(){
+        when:
+        def peso = -1
+        new CalculadoraImc().calcularImc(peso, 1.70)
+
+        then:
+        def ex = thrown(IllegalArgumentException)
+        ex.message == "Peso inválido: ${peso.toDouble()}"
+    }
 }
