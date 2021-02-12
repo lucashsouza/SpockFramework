@@ -28,4 +28,18 @@ class CalculadoraImcTest extends Specification{
         thrown(IllegalArgumentException)
     }
 
+    def 'lançar exceção com peso inválido v3'(){
+
+        when:
+        new CalculadoraImc().calcularImc(0, 1.70)
+
+        then:
+        thrown(IllegalArgumentException)
+
+        when:
+        new CalculadoraImc().calcularImc(-1, 1.70)
+
+        then:
+        thrown(IllegalArgumentException)
+    }
 }
